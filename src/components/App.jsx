@@ -8,7 +8,7 @@ import axios from "axios";
 function App() {
   const [notes, setNotes] = useState([]);
   useEffect(() => {
-    axios.get("/note").then((res) => {
+    axios.get("http://guarded-falls-49509.herokuapp.com/note").then((res) => {
       setNotes(res.data);
     });
   }, []);
@@ -19,7 +19,7 @@ function App() {
     });
 
     axios
-      .post("/note", { t: newNote.title, c: newNote.content })
+      .post("http://guarded-falls-49509.herokuapp.com/note", { t: newNote.title, c: newNote.content })
       .then(function (response) {
         console.log(response.data);
       });
@@ -37,7 +37,7 @@ function App() {
     setNotes((prevNotes) => {
       return prevNotes.filter((noteItem, index) => {
         if(index===id){
-          axios.delete("/note/"+noteItem.title).then((res)=>{
+          axios.delete("http://guarded-falls-49509.herokuapp.com/note/"+noteItem.title).then((res)=>{
             console.log(res.data);
           })
         }
