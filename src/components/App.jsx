@@ -16,9 +16,9 @@ function App() {
   }, []);
 
   function addNote(newNote) {
-    setNotes((prevNotes) => {
-      return [...prevNotes, newNote];
-    });
+    // setNotes((prevNotes) => {
+    //   return [...prevNotes, newNote];
+    // });
 
     axios
       .post("https://vast-brushlands-82116.herokuapp.com/note", {
@@ -27,6 +27,12 @@ function App() {
       })
       .then(function (response) {
         console.log(response.data);
+        axios
+      .get("https://vast-brushlands-82116.herokuapp.com/note")
+      .then((res) => {
+        setNotes(res.data);
+      });
+        
       });
   }
  
