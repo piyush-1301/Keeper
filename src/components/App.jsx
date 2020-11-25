@@ -32,18 +32,27 @@ function App() {
  
   function deleteNote(id) {
 
-    setNotes((prevNotes) => {
-    
-      return prevNotes.filter((noteItem, index) => {
-        if (index === id) {
-          axios.delete("https://vast-brushlands-82116.herokuapp.com/note/" + noteItem._id)
+    notes.forEach((item,index)=>{
+      if (index === id) {
+        axios.delete("https://vast-brushlands-82116.herokuapp.com/note/"+item._id)
+          .then((res) => {
+            console.log(res.data);
+            axios
+            .get("https://vast-brushlands-82116.herokuapp.com/note")
             .then((res) => {
-              console.log(res.data);
+              setNotes(res.data);
             });
-        }
-        return index !== id;
-      });
-    });
+          });
+      }
+    })
+
+    // setNotes((prevNotes) => {
+    
+    //   return prevNotes.filter((noteItem, index) => {
+       
+    //     return index !== id;
+    //   });
+    // });
   }
  
 
