@@ -10,7 +10,6 @@ function App() {
   const [notes, setNotes] = useState([]);
   useEffect(() => {
     axios.get("https://vast-brushlands-82116.herokuapp.com/note").then((res) => {
-      console.log(res.data);
       setNotes(res.data);
     });
   }, []);
@@ -39,7 +38,7 @@ function App() {
     setNotes((prevNotes) => {
       return prevNotes.filter((noteItem, index) => {
         if(index===id){
-          axios.delete("https://vast-brushlands-82116.herokuapp.com/note/"+noteItem.title).then((res)=>{
+          axios.delete("https://vast-brushlands-82116.herokuapp.com/note/"+noteItem._id).then((res)=>{
             console.log(res.data);
           })
         }
