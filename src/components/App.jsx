@@ -5,13 +5,14 @@ import Note from "./Note";
 import CreateArea from "./CreateArea";
 import axios from "axios";
 
-
 function App() {
   const [notes, setNotes] = useState([]);
   useEffect(() => {
-    axios.get("https://vast-brushlands-82116.herokuapp.com/note").then((res) => {
-      setNotes(res.data);
-    });
+    axios
+      .get("https://vast-brushlands-82116.herokuapp.com/note")
+      .then((res) => {
+        setNotes(res.data);
+      });
   }, []);
 
   function addNote(newNote) {
@@ -20,36 +21,33 @@ function App() {
     });
 
     axios
-      .post("https://vast-brushlands-82116.herokuapp.com/note", { t: newNote.title, c: newNote.content })
+      .post("https://vast-brushlands-82116.herokuapp.com/note", {
+        t: newNote.title,
+        c: newNote.content,
+      })
       .then(function (response) {
         console.log(response.data);
       });
   }
-
+ 
   function deleteNote(id) {
-  //  notes.forEach((currentValue,index) => {
-  //    if(index===id){
-  //     axios.delete("/note/"+currentValue.title).then((res)=>{
-  //       setNotes(res.data);
-  //     })
-  //    }
-  //  });
 
     setNotes((prevNotes) => {
+    
       return prevNotes.filter((noteItem, index) => {
-        if(index===id){
-          
-          axios.delete("https://vast-brushlands-82116.herokuapp.com/note/"+noteItem._id).then((res)=>{
-            console.log(res.data);
-          });
-      
-
+        if (index === id) {
+          axios.delete("https://vast-brushlands-82116.herokuapp.com/note/" + noteItem._id)
+            .then((res) => {
+              console.log(res.data);
+            });
         }
         return index !== id;
       });
     });
-  
-}
+  }
+ 
+
+ 
 
   return (
     <div>
