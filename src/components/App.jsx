@@ -38,9 +38,12 @@ function App() {
     setNotes((prevNotes) => {
       return prevNotes.filter((noteItem, index) => {
         if(index===id){
+          useEffect(() => {
           axios.delete("https://vast-brushlands-82116.herokuapp.com/note/"+noteItem._id).then((res)=>{
             console.log(res.data);
-          })
+          });
+        }, []);
+
         }
         return index !== id;
       });
