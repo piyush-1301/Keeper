@@ -4,7 +4,7 @@ import Footer from "./Footer";
 import Note from "./Note";
 import CreateArea from "./CreateArea";
 import axios from "axios";
-import useMediaQuery from '@material-ui/core/useMediaQuery';
+
 
 function App() {
   const [notes, setNotes] = useState([]);
@@ -54,17 +54,7 @@ function App() {
       }
     });
   }
-  const MyWrapperComponent = (props) => {
-    const isMobile = useMediaQuery('(max-width: 1000px)');
-    const textStyle = isMobile ? 'text-mobile' : 'text-mobile';
-  
-    return (
-      <div className={textStyle}>
-       {props.children}
-      </div>
-    )
-  }
-  
+ 
 
   return (
     <div>
