@@ -9,17 +9,14 @@ html {
 body {
   background: #eee;
   background-image: url("https://www.transparenttextures.com/patterns/food.png");
-  padding: 0 0 0 16px;
 }
 
-header {
-  background-color: #f5ba13;
-  margin: auto -16px;
-  padding: 16px 32px;
+.jumbotron{
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
 }
 
-header h1 {
+
+.jumbotron h1 {
   color: #fff;
   font-family: "McLaren", cursive;
   font-weight: 200;
@@ -41,10 +38,14 @@ footer p {
   border-radius: 7px;
   box-shadow: 0 2px 5px #ccc;
   padding: 10px;
-  width: 240px;
+  width: 15%;
   margin: 16px;
   float: left;
 }
+@media only screen and (max-width: 800px) {
+  .note {
+    width: 40%;}}
+
 .note h1 {
   font-size: 1.1em;
   margin-bottom: 6px;
@@ -70,13 +71,17 @@ footer p {
 
 form.create-note {
   position: relative;
-  width: 480px;
+  width: 30%;
   margin: 30px auto 20px auto;
   background: #fff;
   padding: 15px;
   border-radius: 7px;
   box-shadow: 0 1px 5px rgb(138, 137, 137);
 }
+@media only screen and (max-width: 800px) {
+  form.create-note {
+    width: 60%;}}
+
 form.create-note input,
 form.create-note textarea {
   width: 100%;
@@ -86,7 +91,7 @@ form.create-note textarea {
   font-size: 1.2em;
   font-family: inherit;
   resize: none;
-}
+} 
 form.create-note button {
   position: absolute;
   right: 18px;
