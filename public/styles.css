@@ -5,10 +5,12 @@
 }
 html {
   font-family: "Montserrat", sans-serif;
+  min-height: 100vh;
 }
 body {
   background: #eee;
   background-image: url("https://www.transparenttextures.com/patterns/food.png");
+  min-height: 100vh;
 }
 
 .jumbotron{
@@ -23,9 +25,9 @@ body {
 }
 
 footer {
-  position: absolute;
+ position: absolute;
   text-align: center;
-  bottom: 0;
+  bottom:0;
   width: 100%;
   height: 2.5rem;
 }
